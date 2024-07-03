@@ -1,0 +1,5 @@
+### GET all Accounts
+GET http://localhost:3000/account
+
+### GET one account
+GET http://localhost:3000/account/1234

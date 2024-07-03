@@ -2,6 +2,8 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/gorilla/mux"
@@ -42,10 +44,25 @@ func (s *APIServer) Run() {
 	router := mux.NewRouter()
 
 	router.HandleFunc("/account", makeHTTPHandleFunc(s.handleAccount))
+
+	log.Println("JSON API server running on port: ", s.listenAddr)
+
+	http.ListenAndServe(s.listenAddr, router)
 }
 
+// This method will call the other methods properly, according to the type of the request (GET, POST and so on)
 func (s *APIServer) handleAccount(w http.ResponseWriter, r *http.Request) error {
-	return nil
+	switch r.Method {
+	case "GET":
+		return s.handleGetAccount(w, r)
+	case "POST":
+		return s.handleCreateAccount(w, r)
+	case "DELETE":
+		return s.handleDeleteAccount(w, r)
+	default:
+		return fmt.Errorf("Method not allowed %s", r.Method)
+	}
+
 }
 
 func (s *APIServer) handleGetAccount(w http.ResponseWriter, r *http.Request) error {

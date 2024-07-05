@@ -14,3 +14,11 @@ GET http://localhost:3000/account/1
 
 ### DELETE one account
 DELETE http://localhost:3000/account/1
+
+###POST to transfer to one account
+POST http://localhost:3000/transfer
+
+{
+  "toAccount": 456788,
+  "amount": 250
+}

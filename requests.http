@@ -10,4 +10,7 @@ POST http://localhost:3000/account
 GET http://localhost:3000/account
 
 ### GET one account
-GET http://localhost:3000/account/10
+GET http://localhost:3000/account/1
+
+### DELETE one account
+DELETE http://localhost:3000/account/1

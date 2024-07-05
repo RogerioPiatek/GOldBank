@@ -1,9 +1,3 @@
-### GET all Accounts
-GET http://localhost:3000/account
-
-### GET one account
-GET http://localhost:3000/account/1234
-
 ### POST create an account
 POST http://localhost:3000/account
 
@@ -11,3 +5,9 @@ POST http://localhost:3000/account
   "firstName": "John",
   "lastName": "Smith"
 }
+
+### GET all Accounts
+GET http://localhost:3000/account
+
+### GET one account
+GET http://localhost:3000/account/10

@@ -12,6 +12,10 @@ GET http://localhost:3000/account
 ### GET one account
 GET http://localhost:3000/account/1
 
+###GET one account with invalid JWT token
+GET http://localhost:3000/account/1
+x-jwt-token: thisIsNotAValidToken
+
 ### DELETE one account
 DELETE http://localhost:3000/account/1
 

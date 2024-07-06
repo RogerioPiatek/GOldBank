@@ -10,11 +10,17 @@ POST http://localhost:3000/account
 GET http://localhost:3000/account
 
 ### GET one account
+# This will error because a valid JWT is needed
 GET http://localhost:3000/account/1
 
 ###GET one account with invalid JWT token
 GET http://localhost:3000/account/1
 x-jwt-token: thisIsNotAValidToken
+
+### GET one account with valid JWT
+# JWT below should be the one returned from POST
+GET http://localhost:3000/account/1
+x-jwt-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50TnVtYmVyIjoyOTQ2NTcsImV4cGlyZXNBdCI6MTUwMDB9.aqL-iuZw1VWJ46HtHNC_hC-l9TKjRJqabuni9_hU1f0 
 
 ### DELETE one account
 DELETE http://localhost:3000/account/1

@@ -3,7 +3,17 @@ POST http://localhost:3000/account
 
 {
   "firstName": "John",
-  "lastName": "Smith"
+  "lastName": "Smith",
+  "password": "goodpassword3232"
+}
+
+###POST to login
+# Number is given when the account is created 
+POST http://localhost:3000/login
+
+{
+  "number": 441944,
+  "password": "goodpassword3232"
 }
 
 ### GET all Accounts
@@ -13,14 +23,10 @@ GET http://localhost:3000/account
 # This will error because a valid JWT is needed
 GET http://localhost:3000/account/1
 
-###GET one account with invalid JWT token
-GET http://localhost:3000/account/1
-x-jwt-token: thisIsNotAValidToken
-
 ### GET one account with valid JWT
-# JWT below should be the one returned from POST
-GET http://localhost:3000/account/1
-x-jwt-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50TnVtYmVyIjoyOTQ2NTcsImV4cGlyZXNBdCI6MTUwMDB9.aqL-iuZw1VWJ46HtHNC_hC-l9TKjRJqabuni9_hU1f0 
+# JWT below should be the one returned from POST login
+GET http://localhost:3000/account/7
+x-jwt-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50TnVtYmVyIjo2NTI0MDYsImV4cGlyZXNBdCI6MTUwMDB9.9jDiWo-2KUPJzy4rQamvXiRSij4AiCJm7fVmrAeffHM
 
 ### DELETE one account
 DELETE http://localhost:3000/account/1
@@ -29,6 +35,6 @@ DELETE http://localhost:3000/account/1
 POST http://localhost:3000/transfer
 
 {
-  "toAccount": 456788,
+  "toAccount": 441944,
   "amount": 250
 }
